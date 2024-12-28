@@ -4,27 +4,37 @@ import 'package:taskati/core/utils/text_style.dart';
 
 class customButton extends StatelessWidget {
   final String text;
+  final double width;
+  final double height;
+  final Color? bgColor;
+  final Color? textColor;
+  final Function() onPressed;
   const customButton({
     super.key,
     required this.text,
+    this.width=280,
+    this.height=45,
+    this.bgColor,
+    this.textColor,
+    required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 280,
-      height: 50,
+      width: width,
+      height: height,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           text,
           style: getTitleTextStyle(
-            color: AppColor.whiteColor,
+            color:textColor ?? AppColor.whiteColor,
             fontSize: 18
           ),
         ),
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColor.blueVioletColor,
+          backgroundColor:bgColor ?? AppColor.blueVioletColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),

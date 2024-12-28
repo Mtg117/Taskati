@@ -8,3 +8,11 @@ TextStyle getTitleTextStyle({double? fontSize,Color? color,FontWeight? fontWeigh
     fontWeight:fontWeight?? FontWeight.bold,
   );
 }
+
+TextStyle getSmallTextStyle({double? fontSize,Color? color,FontWeight? fontWeight}){
+  return TextStyle(
+    fontSize: fontSize?? 16,
+    color:color?? AppColor.blueVioletColor,
+    fontWeight:fontWeight?? FontWeight.normal,
+  );
+}
