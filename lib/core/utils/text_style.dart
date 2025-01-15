@@ -4,7 +4,7 @@ import 'package:taskati/core/utils/colors.dart';
 TextStyle getTitleTextStyle({double? fontSize,Color? color,FontWeight? fontWeight}){
   return TextStyle(
     fontSize: fontSize?? 30,
-    color:color?? AppColor.primaryColor,
+    color:color?? AppColor.blueVioletColor,
     fontWeight:fontWeight?? FontWeight.bold,
   );
 }

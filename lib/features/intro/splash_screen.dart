@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:lottie/lottie.dart';
 import 'package:taskati/core/utils/colors.dart';
 import 'package:taskati/core/functions/navigations.dart';
 import 'package:taskati/core/utils/text_style.dart';
+import 'package:taskati/features/home/home_screen.dart';
 import 'package:taskati/features/upload/upload_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,8 +17,14 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
+    var userBox = Hive.box("user");
+      bool isUploaded=userBox.get("isUploaded") ?? false;
     Future.delayed(Duration(seconds: 5), () {
-      pushWithReplacement(context, UploadScreen());
+      if (isUploaded) {
+        pushWithReplacement(context, HomeScreen());
+      } else {
+        pushWithReplacement(context, UploadScreen());
+      }
     });
   }
 
